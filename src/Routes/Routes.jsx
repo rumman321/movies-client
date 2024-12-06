@@ -8,6 +8,7 @@ import Add_Movie from "../Pages/Add_Movie";
 import All_Movies from "../Pages/All_Movies";
 import My_Favorites from "../Pages/My_Favorites";
 import Review from "../Pages/Review";
+import AddMovieForm from "../Pages/Add_Movie";
 
 
 
@@ -19,11 +20,13 @@ export const router = createBrowserRouter([
       children:[
         {
             path:"/",
-            element:<Home></Home>
+            element:<Home></Home>,
+            loader:()=>fetch("http://localhost:5000/movie")
+            
         },
         {
             path:"/addMovies",
-            element:<Add_Movie></Add_Movie>
+            element:<AddMovieForm></AddMovieForm>
         },
         {
             path:"/allMovies",
