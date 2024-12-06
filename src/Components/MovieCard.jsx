@@ -13,8 +13,13 @@ const MovieCard = ({movie}) => {
       className="rounded-xl" />
   </figure>
   <div className="card-body items-center text-center">
-    <h2 className="card-title">{title}</h2>
-    <p>{summary}</p>
+  <p className="card-title">Title : {title}</p>
+    <div className=' grid grid-cols-1  items-start justify-start gap-3 '>
+    <p> Genre : {genre}</p>
+    <p> Duration : {duration}minutes</p>
+    <p> Release year : {releaseYear}</p>
+    {/* <p> Summary : {summary}</p> */}
+    </div>
     <div className="card-actions">
       <NavLink to={`/details/${_id}`}>
       <button className="btn btn-primary">See Details</button>

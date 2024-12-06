@@ -1,8 +1,15 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { addFavorite } from './utils';
 
 const Details = () => {
-    const {poster, title, genre, duration, releaseYear, summary, email }=useLoaderData()
+    const movie=useLoaderData()
+    const {poster, title, genre, duration, releaseYear, summary, email }=movie
+
+    // handleFavorite function
+    const handleFavorite=(movie)=>{
+        addFavorite(movie)
+    }
     return (
         <div className='mx-auto pt-32 flex items-center justify-center'>
             <div className="card bg-base-100 w-96 shadow-xl ">
@@ -13,16 +20,17 @@ const Details = () => {
       className="rounded-xl" />
   </figure>
   <div className="card-body items-center text-center">
-    <div className='grid grid-cols-2 gap-5'>
-    <h2 className="card-title">{title}</h2>
-    <p>{genre}</p>
-    <p>{duration}minutes</p>
-    <p>{releaseYear}</p>
+  <p className="card-title">Title : {title}</p>
+    <div className=' grid grid-cols-1  items-start justify-start gap-3 '>
+    <p> Genre : {genre}</p>
+    <p> Duration : {duration}minutes</p>
+    <p> Release year : {releaseYear}</p>
+    <p> Summary : {summary}</p>
     </div>
-    <p>{summary}</p>
+    
     <div className="card-actions flex gap-5">
       <button className="btn btn-primary">Delete</button>
-      <button className="btn btn-primary">Add Favorite</button>
+      <button className="btn btn-primary" onClick={()=>handleFavorite(movie)}>Add Favorite</button>
     </div>
   </div>
 </div>
