@@ -26,12 +26,13 @@ export const router = createBrowserRouter([
         },
         {
             path:"/addMovies",
-            element:<AddMovieForm></AddMovieForm>,
-            loader:()=>fetch("http://localhost:5000/movie")
+            element:<AddMovieForm></AddMovieForm>
+            
         },
         {
             path:"/allMovies",
-            element:<All_Movies></All_Movies>
+            element:<All_Movies></All_Movies>,
+            loader:()=>fetch("http://localhost:5000/movie")
         },
         {
             path:"/myFavorites",

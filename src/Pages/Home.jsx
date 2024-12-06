@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Banner from '../Components/Banner';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import MovieCard from '../Components/MovieCard';
@@ -6,6 +6,9 @@ import MovieCard from '../Components/MovieCard';
 const Home = () => {
     const Movies=useLoaderData()
     const navigate=useNavigate()
+    const [data,setData] = useState(Movies.slice(0, 6))
+    
+    
     return (
         <div className='w-11/12 mx-auto text-center'>
            <Banner></Banner>
@@ -13,7 +16,7 @@ const Home = () => {
 
            <div className='grid grid-cols-1 gap-5 lg:grid-cols-3 text-center'>
             {
-                Movies.map(movie=> <MovieCard key={movie._id} movie={movie}></MovieCard>)
+                data.map(movie=> <MovieCard key={movie._id} movie={movie}></MovieCard>)
             }
            </div>
            <button className=' btn' onClick={()=> navigate('/allMovies')}>View All</button>
