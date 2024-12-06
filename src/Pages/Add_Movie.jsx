@@ -138,7 +138,7 @@ const years = [2024, 2023, 2022, 2021];
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 pt-20">
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="poster">

@@ -9,6 +9,7 @@ import All_Movies from "../Pages/All_Movies";
 import My_Favorites from "../Pages/My_Favorites";
 import Review from "../Pages/Review";
 import AddMovieForm from "../Pages/Add_Movie";
+import Details from "../Components/Details";
 
 
 
@@ -41,6 +42,17 @@ export const router = createBrowserRouter([
         {
             path:"/review",
             element:<Review></Review>
+        },
+        {
+          path:"/details/:id",
+          element:<Details></Details>,
+          loader: async({params})=>{
+              const res=await fetch(`http://localhost:5000/movie`)
+              const data = await res.json()
+              const singleData=data.find(d=> d._id==params.id)
+              
+              return singleData
+          }
         }
       ]
     },
