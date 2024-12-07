@@ -3,63 +3,6 @@ import Swal from "sweetalert2";
 import { Rating } from "react-simple-star-rating";
 
 const AddMovieForm = () => {
-//   const [formData, setFormData] = useState({
-//     poster: "",
-//     title: "",
-//     genre: "",
-//     duration: "",
-//     releaseYear: "",
-//     rating: 0,
-//     summary: "",
-//     email: ""
-//   });
-
-
-
-//   const handleChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value,
-//     });
-//   };
-
-//   const handleRating = (rate) => {
-//     setFormData({
-//       ...formData,
-//       rating: rate,
-//     });
-//   };
-
-//   const validateForm = () => {
-    
-//     const { poster, title, genre, duration, releaseYear, rating, summary, email } = formData;
-//     if (!poster || !/^https?:\/\/.+\..+/.test(poster)) {
-//       return "Please provide a valid image link for the movie poster.";
-//     }
-//     if (!title || title.length < 2) {
-//       return "Movie title must be at least 2 characters long.";
-//     }
-//     if (!genre) {
-//       return "Please select a genre.";
-//     }
-//     if (!duration || duration < 60) {
-//       return "Duration must be greater than 60 minutes.";
-//     }
-//     if (!releaseYear) {
-//       return "Please select a release year.";
-//     }
-//     if (rating === 0) {
-//       return "Please select a rating.";
-//     }
-//     if (!summary || summary.length < 10) {
-//       return "Summary must be at least 10 characters long.";
-//     }
-//     if (!email) {
-//       return "Email must be provided.";
-//     }
-//     return null;
-//   };
-
 
 const genres = ["comedy", "drama", "horror", "action", "thriller", "romance"];
 const years = [2024, 2023, 2022, 2021];

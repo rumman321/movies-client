@@ -18,6 +18,7 @@ const Login = () => {
         userSignIn(email,password)
         .then(result=>{
             console.log(result.user)
+            navigate( location ?.state ? location?.state : '/')
             
             
         })

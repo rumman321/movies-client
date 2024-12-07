@@ -12,10 +12,8 @@ const AuthProvider = ({children}) => {
     // google
     const provider = new GoogleAuthProvider();
     const handleGoogleSignIn=()=>{
-        signInWithPopup(auth,provider)
-        .then(result=>{
-
-        }).catch(err=> alert("ERROR ", err.message))
+      return  signInWithPopup(auth,provider)
+       
     }
 
     const userNewCreate=(email,password)=>{
@@ -35,6 +33,7 @@ const AuthProvider = ({children}) => {
 
     const logOut=()=>{
         setLoading(true)
+        setUser(null)
         return signOut(auth)
               
     }
@@ -47,12 +46,14 @@ const AuthProvider = ({children}) => {
             }
             else{
                 setLoading(false)
+                setUser(null)
+
             }
             return ()=>onSubscribe()
         })
 
         
-    },[user])
+    },[])
 
    const authInfo ={
         user,
