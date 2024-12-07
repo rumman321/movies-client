@@ -1,8 +1,11 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import ReviewCard from '../Components/ReviewCard';
 
 
 const Review = () => {
+  const reviews= useLoaderData()
   const genres = ["comedy", "drama", "horror", "action", "thriller", "romance"];
   const handleSubmit=(e)=>{
     e.preventDefault();
@@ -73,7 +76,16 @@ const Review = () => {
 
   }
     return (
-      <div className="container mx-auto p-4 pt-20">
+      <div className='pt-28 w-11/12 mx-auto'>
+        <div>
+          <h1>total {reviews.length}</h1>
+          <div className='grid grid-cols-1 gap-5 lg:grid-cols-3 text-center'>
+            {
+                reviews.map(review=> <ReviewCard key={review._id} review={review} ></ReviewCard>)
+            }
+           </div>
+        </div>
+        <div className="container mx-auto p-4 pt-20">
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="poster">
@@ -158,11 +170,12 @@ const Review = () => {
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
-            Add Movie
+            Add Review
           </button>
         </div>
       </form>
     </div>
+      </div>
     );
 };
 

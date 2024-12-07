@@ -61,7 +61,7 @@ const FavCard = ({favorite,setfavorites,favorites}) => {
   
 </div>
 </div>
-</div>
+        </div>
     </div>
     );
 };
