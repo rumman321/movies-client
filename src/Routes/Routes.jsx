@@ -37,7 +37,8 @@ export const router = createBrowserRouter([
         },
         {
             path:"/myFavorites",
-            element:<My_Favorites></My_Favorites>
+            element:<My_Favorites></My_Favorites>,
+            loader:()=>fetch('http://localhost:5000/favorites')
         },
         {
             path:"/review",

@@ -8,7 +8,17 @@ const Details = () => {
 
     // handleFavorite function
     const handleFavorite=(movie)=>{
-        addFavorite(movie)
+
+      fetch(`http://localhost:5000/favorites`,{
+        method:'POST',
+        headers:{
+          'content-type':'application/json'
+        },
+        body:JSON.stringify(movie)
+      })
+      // console.log(movie)
+        // addFavorite(movie)
+
     }
     return (
         <div className='mx-auto pt-32 flex items-center justify-center'>

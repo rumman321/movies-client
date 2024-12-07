@@ -7,7 +7,7 @@ const Banner = () => {
         <div id="slide1" className="carousel-item relative w-full h-80">
           <img
             src="https://i.ibb.co.com/SddFMYT/m1.jpg"
-            className="w-full h-80"
+            className="w-full h-80 "
           />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <a href="#slide3" className="btn btn-circle">

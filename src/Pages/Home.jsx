@@ -19,7 +19,7 @@ const Home = () => {
                 data.map(movie=> <MovieCard key={movie._id} movie={movie}></MovieCard>)
             }
            </div>
-           <button className=' btn' onClick={()=> navigate('/allMovies')}>View All</button>
+           <button className=' btn mt-14' onClick={()=> navigate('/allMovies')}>View All</button>
         </div>
     );
 };
