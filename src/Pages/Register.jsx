@@ -1,16 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
+    const [error,setError]=useState({})
+    const navigate=useNavigate()
+
     const handleSubmit=(e)=>{
-        
+        e.preventDefault()
         const form= new FormData(e.target)
         const name=form.get("name")
         const photo=form.get("photo")
         const email=form.get("email")
         const password=form.get("password")
         console.log(name,photo,email,password)
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+        if(!passwordRegex.test(password)){
+            setError( { ...error, pass: `password Must have an Uppercase letter a Lowercase & Length must be at least 6 character`})
+            return
+        }
     }
     return (
         <div className='pt-32 text-center'>
@@ -68,7 +76,7 @@ const Register = () => {
               required
             />
 
-            {/* {error.pass && <label className="label text-red-600 text-sm">{error.pass}</label>} */}
+            {error.pass && <label className="label text-red-600 text-sm">{error.pass}</label>}
            
             
           </div>
