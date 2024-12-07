@@ -13,6 +13,7 @@ import Details from "../Components/Details";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import AuthProvider from "../Components/AuthProvider";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -30,7 +31,7 @@ export const router = createBrowserRouter([
         },
         {
             path:"/addMovies",
-            element:<AddMovieForm></AddMovieForm>
+            element:<PrivateRoute><AddMovieForm></AddMovieForm></PrivateRoute>
             
         },
         {
@@ -40,7 +41,7 @@ export const router = createBrowserRouter([
         },
         {
             path:"/myFavorites",
-            element:<My_Favorites></My_Favorites>,
+            element:<PrivateRoute><My_Favorites></My_Favorites></PrivateRoute>,
             loader:()=>fetch('http://localhost:5000/favorites')
         },
         {
@@ -49,7 +50,7 @@ export const router = createBrowserRouter([
         },
         {
           path:"/details/:id",
-          element:<Details></Details>,
+          element:<PrivateRoute><Details></Details></PrivateRoute>,
           loader: async({params})=>{
               const res=await fetch(`http://localhost:5000/movie`)
               const data = await res.json()
