@@ -14,6 +14,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import AuthProvider from "../Components/AuthProvider";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../Components/Error";
 
 
 
@@ -77,5 +78,9 @@ export const router = createBrowserRouter([
       children:[
         
       ]
-    }
+    },
+    {
+      path:"*",
+      element: <Error></Error>
+  }
   ]);
