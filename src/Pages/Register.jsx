@@ -1,9 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Review = () => {
+const Register = () => {
+
+    const handleSubmit=(e)=>{
+        
+        const form= new FormData(e.target)
+        const name=form.get("name")
+        const photo=form.get("photo")
+        const email=form.get("email")
+        const password=form.get("password")
+        console.log(name,photo,email,password)
+    }
     return (
-        <div className="min-h-screen flex justify-center items-center">
+        <div className='pt-32 text-center'>
+            <div className="min-h-screen flex justify-center items-center">
           
       <div className="card bg-base-100 w-full max-w-lg p-10 shrink-0 shadow-2xl">
         <h2 className="font-bold text-2xl text-center">Register your account</h2>
@@ -20,14 +31,7 @@ const Review = () => {
               required
             />
           </div>
-          {/* {error.name && <label className="label text-red-600">{error.name}</label>} */}
-          {/* {
-            error.name && (
-            <label className="label">
-              {error.name}
-            </label>
-            )
-          } */}
+          
           <div className="form-control">
             <label className="label">
               <span className="label-text">Photo URL</span>
@@ -76,13 +80,14 @@ const Review = () => {
         
         <p className="text-center font-semibold">
           Already have an account ?{" "}
-          <Link className="text-red-600" to="/auth/login">
+          <Link className="text-red-600" to="/login">
             Login
           </Link>
         </p>
       </div>
     </div>
+        </div>
     );
 };
 
-export default Review;
+export default Register;

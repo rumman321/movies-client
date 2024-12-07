@@ -10,6 +10,8 @@ import My_Favorites from "../Pages/My_Favorites";
 import Review from "../Pages/Review";
 import AddMovieForm from "../Pages/Add_Movie";
 import Details from "../Components/Details";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
 
 
 
@@ -54,6 +56,14 @@ export const router = createBrowserRouter([
               
               return singleData
           }
+        },
+        {
+          path:"/login",
+          element:<Login></Login>
+        },
+        {
+          path:"/register",
+          element:<Register></Register>
         }
       ]
     },

@@ -87,7 +87,7 @@ const Navber = () => {
           :
           ( <Link to="/auth/login" className="btn btn-neutral rounded-none">Login</Link >)
         } */}
-          <button className='btn'>Login</button>
+          <Link to="/login"><button className='btn'>Login</button></Link>
         </div>
       </div>
         </div>
