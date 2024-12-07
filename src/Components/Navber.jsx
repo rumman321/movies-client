@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import userIcon from "../assets/user.png"
+import { AuthContext } from './AuthProvider';
 
 const Navber = () => {
+  const {user,logOut}=useContext(AuthContext)
     return (
         <div className='fixed z-20 w-full'>
             <div className="navbar bg-base-100">
@@ -68,26 +71,26 @@ const Navber = () => {
         <div className="navbar-end flex items-center gap-3">
           
           {/* <img src={userIcon} alt="" /> */}
-          {/* <div className=" ">
+          <div className=" ">
           {
             user && user?.email? <div className=" cursor-pointer">
               <img className="w-10 rounded-full" src={user?.photoURL} alt="" />
-              <p className="hidden hover:block">{user.displayName}</p>
+              
             </div>
             :
             <img src={userIcon} alt="" />
           }
           
-        </div> */}
+        </div>
 
          {/* btn section */}
-          {/* {
+          {
           user && user?.email ?
            (<button onClick={logOut} className="btn btn-neutral">Log Out</button>)
           :
-          ( <Link to="/auth/login" className="btn btn-neutral rounded-none">Login</Link >)
-        } */}
-          <Link to="/login"><button className='btn'>Login</button></Link>
+          ( <Link to="/login" className="btn btn-neutral rounded-none">Login</Link >)
+        }
+          
         </div>
       </div>
         </div>

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Components/AuthProvider';
+import GoogleLogin from '../Components/GoogleLogin';
 
 const Register = () => {
-
+    const {userNewCreate,setUser}=useContext(AuthContext)
     const [error,setError]=useState({})
     const navigate=useNavigate()
 
@@ -19,6 +21,19 @@ const Register = () => {
             setError( { ...error, pass: `password Must have an Uppercase letter a Lowercase & Length must be at least 6 character`})
             return
         }
+
+        userNewCreate(email,password)
+        .then((result)=>{
+            const user =result.user
+            setUser( user)
+            console.log(user)
+            navigate('/')
+            
+            
+        })
+        .catch(Err=>{
+          setError({...error, login:Err.message})
+        })
     }
     return (
         <div className='pt-32 text-center'>
@@ -85,6 +100,8 @@ const Register = () => {
           </div>
         </form>
         <br />
+
+        <GoogleLogin></GoogleLogin>
         
         <p className="text-center font-semibold">
           Already have an account ?{" "}
