@@ -12,6 +12,7 @@ import AddMovieForm from "../Pages/Add_Movie";
 import Details from "../Components/Details";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import AuthProvider from "../Components/AuthProvider";
 
 
 
@@ -67,4 +68,11 @@ export const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path:"/auth",
+      element:<AuthProvider></AuthProvider>,
+      children:[
+        
+      ]
+    }
   ]);
