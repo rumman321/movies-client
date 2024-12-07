@@ -3,6 +3,7 @@ import Banner from '../Components/Banner';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import MovieCard from '../Components/MovieCard';
 import Footer from '../Components/Footer';
+import ExtraPart1 from '../Components/ExtraPart1';
 
 const Home = () => {
     const Movies=useLoaderData()
@@ -21,6 +22,7 @@ const Home = () => {
             }
            </div>
            <button className=' btn mt-14 mb-14' onClick={()=> navigate('/allMovies')}>View All</button>
+           <ExtraPart1></ExtraPart1>
            <Footer></Footer>
         </div>
     );
