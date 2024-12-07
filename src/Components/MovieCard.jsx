@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const MovieCard = ({movie}) => {
+const MovieCard = ({movie,setMovies,Movies}) => {
     const { poster, title, genre, duration, releaseYear, summary, email,_id } = movie
     return (
         <div className='mx-auto pt-20'>

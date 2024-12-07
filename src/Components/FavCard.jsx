@@ -1,6 +1,42 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
-const FavCard = () => {
+const FavCard = ({favorite,setfavorites,favorites}) => {
+    const {poster, title, genre, duration, releaseYear, summary, email,_id}=favorite
+
+    const handleDelete=(_id)=>{
+        console.log(_id)
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+            fetch(`http://localhost:5000/favorites/${_id}`,{
+                method:"DELETE"
+            })
+            .then(res=> res.json())
+            .then(data=> {
+                console.log(data)
+                if(data.deletedCount > 0){
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your favorite movie has been deleted.",
+                        icon: "success"
+                      });
+                      // update the loaded  state
+                      const remainingMovies = favorites.filter(m => m._id !== _id);
+                      setfavorites(remainingMovies);
+                }
+            })
+            }
+          });
+    }
     return (
         <div className='mx-auto pt-20'>
         <div className="card bg-base-100 w-96 shadow-xl ">
@@ -19,9 +55,10 @@ const FavCard = () => {
 {/* <p> Summary : {summary}</p> */}
 </div>
 <div className="card-actions">
-  <NavLink to={`/details/${_id}`}>
-  <button className="btn btn-primary">See Details</button>
-  </NavLink>
+  
+  <button className="btn btn-primary" onClick={()=>handleDelete(_id)} >Delete Favorites</button>
+  
+  
 </div>
 </div>
 </div>
