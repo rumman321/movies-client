@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
         {
             path:"/",
             element:<Home></Home>,
-            loader:()=>fetch("http://localhost:5000/movie")
+            loader:()=>fetch("https://orchid-server-10.vercel.app/movie")
             
         },
         {
@@ -38,24 +38,24 @@ export const router = createBrowserRouter([
         {
             path:"/allMovies",
             element:<All_Movies></All_Movies>,
-            loader:()=>fetch("http://localhost:5000/movie")
+            loader:()=>fetch("https://orchid-server-10.vercel.app/movie")
         },
         {
             path:"/myFavorites",
             element:<PrivateRoute><My_Favorites></My_Favorites></PrivateRoute>,
-            loader:()=>fetch('http://localhost:5000/favorites')
+            loader:()=>fetch('https://orchid-server-10.vercel.app/favorites')
         },
         {
             path:"/review",
             element:<Review></Review>,
-            loader:()=>fetch('http://localhost:5000/review')
+            loader:()=>fetch('https://orchid-server-10.vercel.app/review')
 
         },
         {
           path:"/details/:id",
           element:<PrivateRoute><Details></Details></PrivateRoute>,
           loader: async({params})=>{
-              const res=await fetch(`http://localhost:5000/movie`)
+              const res=await fetch(`https://orchid-server-10.vercel.app/movie`)
               const data = await res.json()
               const singleData=data.find(d=> d._id==params.id)
               

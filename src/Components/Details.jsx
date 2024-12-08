@@ -24,7 +24,7 @@ const Details = () => {
           confirmButtonText: "Yes, delete it!"
         }).then((result) => {
           if (result.isConfirmed) {
-          fetch(`http://localhost:5000/movie/${_id}`,{
+          fetch(`https://orchid-server-10.vercel.app/movie/${_id}`,{
               method:"DELETE"
           })
           .then(res=> res.json())
@@ -49,7 +49,7 @@ const Details = () => {
     // handleFavorite function
     const handleFavorite=(movie)=>{
 
-      fetch(`http://localhost:5000/favorites`,{
+      fetch(`https://orchid-server-10.vercel.app/favorites`,{
         method:'POST',
         headers:{
           'content-type':'application/json'

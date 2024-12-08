@@ -1,8 +1,44 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
-const ReviewCard = ({review}) => {
+const ReviewCard = ({review,reviews,setreviews}) => {
 
-    const { poster, title, genre, summary, name,photo }=review
+  const { poster, title, genre, summary, name,photo,_id }=review
+  const handleDelete=(_id)=>{
+    console.log(_id)
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+        fetch(`https://orchid-server-10.vercel.app/review/${_id}`,{
+            method:"DELETE"
+        })
+        .then(res=> res.json())
+        .then(data=> {
+            console.log(data)
+            if(data.deletedCount > 0){
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your Review  has been deleted.",
+                    icon: "success"
+                  });
+                  // update the loaded  state
+                  const remainingMovies = reviews.filter(m => m._id !== _id);
+                  setreviews(remainingMovies);
+            }
+        })
+        }
+      });
+}
+
+    
     return (
         <div>
             <div className="card bg-base-100 w-96 shadow-xl ">
@@ -26,7 +62,9 @@ const ReviewCard = ({review}) => {
 </div>
 <div className="card-actions">
   
-  <button className="btn btn-primary"  >Delete Review</button>
+  <button className="btn btn-primary" 
+  onClick={()=>handleDelete(_id)}
+  >Delete Review</button>
   
   
 </div>

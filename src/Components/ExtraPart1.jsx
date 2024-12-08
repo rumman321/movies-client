@@ -6,7 +6,7 @@ const ExtraPart1 = () => {
         <div className=" mt-20">
         <div className="">
           <Marquee className=" font-semibold px-12 text-white py-3 bg-red-400">
-            <h2 className="ml-10">Which Movie You Want Next</h2>
+            <h2 className="ml-10">Which Movie You Want Next !</h2>
             <h2 className="ml-10">Which Movie You Want Next</h2>
             <h2 className="ml-10">Which Movie You Want Next</h2>
             <h2 className="ml-10">Which Movie You Want Next</h2>

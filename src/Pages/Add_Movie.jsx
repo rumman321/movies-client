@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { Rating } from "react-simple-star-rating";
-
+import "./Add.css"
 const AddMovieForm = () => {
   const genres = ["comedy", "drama", "horror", "action", "thriller", "romance"];
   const years = [2024, 2023, 2022, 2021]
@@ -61,7 +61,7 @@ const AddMovieForm = () => {
       });
     } else {
       // send data to the server
-      fetch('http://localhost:5000/movie', {
+      fetch('https://orchid-server-10.vercel.app/movie', {
         method: 'POST',
         headers: {
           "content-type": "application/json"
@@ -82,6 +82,7 @@ const AddMovieForm = () => {
 
   return (
     <div className="container mx-auto p-4 pt-20">
+      <h1 className="text">abc</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="poster">
@@ -148,7 +149,7 @@ const AddMovieForm = () => {
         <div className="mb-4"> <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="rating">
            Rating: 
            </label> 
-           <div className="flex items-center">
+           <div className="rating-css">
              <Rating onClick={handleRating} ratingValue={rating} />
               </div>
          </div>

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import userIcon from "../assets/user.png"
 import { AuthContext } from './AuthProvider';
+import ThemeToggle from './ThemeToggle';
 
 const Navber = () => {
   const {user,logOut}=useContext(AuthContext)
@@ -34,16 +35,16 @@ const Navber = () => {
                 <NavLink to="/" >Home</NavLink >
               </li>
               <li>
-                <NavLink to="/allMovies">allMovies</NavLink >
+                <NavLink to="/allMovies">All Movies</NavLink >
               </li>
               <li>
-                <NavLink to="/addMovies">addMovies</NavLink >
+                <NavLink to="/addMovies">Add Movies</NavLink >
               </li>
               <li>
-                <NavLink to="/myFavorites">myFavorites</NavLink >
+                <NavLink to="/myFavorites">My Favorites</NavLink >
               </li>
               <li>
-                <NavLink to="/review">review</NavLink >
+                <NavLink to="/review">Review</NavLink >
               </li>
             </ul>
           </div>
@@ -55,20 +56,24 @@ const Navber = () => {
                 <NavLink to="/" >Home</NavLink >
               </li>
               <li>
-                <NavLink to="/allMovies">allMovies</NavLink >
+                <NavLink to="/allMovies">All Movies</NavLink >
               </li>
               <li>
-                <NavLink to="/addMovies">addMovies</NavLink >
+                <NavLink to="/addMovies">Add Movies</NavLink >
               </li>
               <li>
-                <NavLink to="/myFavorites">myFavorites</NavLink >
+                <NavLink to="/myFavorites">My Favorites</NavLink >
               </li>
               <li>
-                <NavLink to="/review">review</NavLink >
+                <NavLink to="/review">Review</NavLink >
               </li>
           </ul>
         </div>
         <div className="navbar-end flex items-center gap-3">
+
+        <div className="flex justify-end ">
+           <ThemeToggle />
+            {/* Add the ThemeToggle component */} </div>
           
           {/* <img src={userIcon} alt="" /> */}
           <div className=" ">

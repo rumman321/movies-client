@@ -7,6 +7,7 @@ import 'aos/dist/aos.css';
 const All_Movies = () => {
     const data = useLoaderData();
     const [Movies, setMovies] = useState(data);
+   
 
     useEffect(() => {
         AOS.init({

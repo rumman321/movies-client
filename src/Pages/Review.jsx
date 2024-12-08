@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import ReviewCard from '../Components/ReviewCard';
 
 
 const Review = () => {
-  const reviews= useLoaderData()
+  const data= useLoaderData()
+  const [reviews,setreviews]=useState(data)
   const genres = ["comedy", "drama", "horror", "action", "thriller", "romance"];
+ 
   const handleSubmit=(e)=>{
     e.preventDefault();
     const form=e.target
@@ -54,7 +56,7 @@ const Review = () => {
       });
     } else {
       // send data to the server
-    fetch('http://localhost:5000/review',{
+    fetch('https://orchid-server-10.vercel.app/review',{
       method:'POST',
       headers:{
           "content-type":"application/json"
@@ -65,6 +67,8 @@ const Review = () => {
   .then(res=>res.json())
   .then(data=>{
       console.log(data)
+      review._id=data.insertedId
+      setreviews([...reviews,review])
       Swal.fire({ 
          icon: "success",
          title: "Movie Added!", 
@@ -81,7 +85,7 @@ const Review = () => {
           <h1>total {reviews.length}</h1>
           <div className='grid grid-cols-1 gap-5 lg:grid-cols-3 text-center'>
             {
-                reviews.map(review=> <ReviewCard key={review._id} review={review} ></ReviewCard>)
+                reviews.map(review=> <ReviewCard key={review._id} review={review} reviews={reviews} setreviews={setreviews}></ReviewCard>)
             }
            </div>
         </div>
@@ -167,6 +171,7 @@ const Review = () => {
         </div>
         <div className="flex items-center justify-between">
           <button
+          
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
