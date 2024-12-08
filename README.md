@@ -1,8 +1,17 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## User Register , Login & LogOut :
+User can register and login with registered email . 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Light/Dark Theme Toggle:
+ Switch between light and dark themes to suit your Choice.
+
+
+## AOS Animations:
+ Experience smooth animations as elements fade, zoom, and slide into view as you scroll through the Home & All Movie pages.
+
+## Movie Add System: 
+Add your favorite movies through Add Movies section.
+
+## Movie Suggestion Form: 
+Submit your movie suggestions with  a reason for your choice.

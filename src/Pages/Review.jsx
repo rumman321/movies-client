@@ -67,7 +67,7 @@ const Review = () => {
   .then(res=>res.json())
   .then(data=>{
       console.log(data)
-      review._id=data.insertedId
+      // review._id=data.insertedId
       setreviews([...reviews,review])
       Swal.fire({ 
          icon: "success",
