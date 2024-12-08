@@ -1,29 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Banner from '../Components/Banner';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import MovieCard from '../Components/MovieCard';
 import Footer from '../Components/Footer';
 import ExtraPart1 from '../Components/ExtraPart1';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Home = () => {
-    const Movies=useLoaderData()
-    const navigate=useNavigate()
-    const [data,setData] = useState(Movies.slice(0, 6))
-    
-    
+    const Movies = useLoaderData();
+    const navigate = useNavigate();
+    const [data, setData] = useState(Movies.slice(0, 6));
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+    }, []);
+
     return (
         <div className='w-11/12 mx-auto text-center'>
-           <Banner></Banner>
-           <h1>total movies : {Movies.length}</h1>
-
-           <div className='grid grid-cols-1 gap-5 lg:grid-cols-3 text-center'>
-            {
-                data.map(movie=> <MovieCard key={movie._id} movie={movie}></MovieCard>)
-            }
-           </div>
-           <button className=' btn mt-14 mb-14' onClick={()=> navigate('/allMovies')}>View All</button>
-           <ExtraPart1></ExtraPart1>
-           <Footer></Footer>
+            <div data-aos="fade-up">
+                <Banner />
+            </div>
+            <h1 data-aos="fade-right">Total Movies: {Movies.length}</h1>
+            
+            <div className='grid grid-cols-1 gap-5 lg:grid-cols-3 text-center'>
+                {data.map(movie => (
+                    <div key={movie._id} data-aos="zoom-in">
+                        <MovieCard movie={movie} />
+                    </div>
+                ))}
+            </div>
+            
+            <button className='btn mt-14 mb-14' onClick={() => navigate('/allMovies')} data-aos="fade-up">
+                View All
+            </button>
+            
+            <div data-aos="fade-left">
+                <ExtraPart1 />
+            </div>
+            <Footer />
         </div>
     );
 };
